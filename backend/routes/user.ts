@@ -10,16 +10,8 @@ export const userRouter=new Hono<{Bindings:
 }>();
 
 userRouter.post('/signup',async (c)=>{
-    try{
-        const prisma=new PrismaClient({
-        }).$extends(withAccelerate());
-
-    }
-    catch(error){
-        return c.text(error)
-    }
-    
-
+        const prisma=new PrismaClient().$extends(withAccelerate());
+        return c.text("its working")
 })
 
 userRouter.post('/hello',async (c)=>{
