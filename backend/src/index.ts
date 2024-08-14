@@ -1,18 +1,10 @@
 import { Hono } from 'hono'
+import { userRouter } from '../routes/user'
+
 const app = new Hono()
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
 
-app.post('/api/v1/signup',(c)=>{
-  return c.text("this is the signup route")
-})
-
-app.post('/api/v1/sigin',async (c)=>{
-  const {username,passowrd}=await c.req.json();
-  
-})
+app.route('/api/v1/user',userRouter)
 
 
 export default app

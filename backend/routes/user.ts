@@ -1,6 +1,6 @@
 import {decode,sign,verify} from 'hono/jwt'
 import { Hono } from 'hono'
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
 
 export const userRouter=new Hono<{Bindings:
@@ -9,16 +9,21 @@ export const userRouter=new Hono<{Bindings:
 
 }>();
 
-userRouter.post('/api/v1/signup',async (c)=>{
-    const prisma=await new PrismaClient({
-        datasourceUrl:c.env.DATABASE_URL
-    }).$extends(withAccelerate());
+userRouter.post('/signup',async (c)=>{
+    try{
+        const prisma=new PrismaClient({
+        }).$extends(withAccelerate());
 
-    if(prisma){
-        return c.text 
     }
+    catch(error){
+        return c.text(error)
+    }
+    
 
+})
 
+userRouter.post('/hello',async (c)=>{
+    return c.text("hello this si the endpoint")
 })
 
 
