@@ -20,7 +20,6 @@ const signupBody=z.object({
 })
 
 userRouter.post('/signup',async (c)=>{
-       const requestBody=await c.req.text;
        const {success}=signupBody.safeParse(c.body)
         if(success){
             const prisma=new PrismaClient({
@@ -30,9 +29,10 @@ userRouter.post('/signup',async (c)=>{
             try{
                 const user=await prisma.user.findUnique({
                     where:{
-                        email:body.email
+                        email:
                     }
                 })
+                return c.text('User Signed up successfully')
             }
             catch(err){
                 return c.text(`${err}`);
@@ -40,7 +40,6 @@ userRouter.post('/signup',async (c)=>{
             
         }
         else{
-            return c.text(`The incoming details are : ${requestBody}`)
             return c.text("Invalid details")
 
         }
