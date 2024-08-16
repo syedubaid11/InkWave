@@ -9,7 +9,6 @@ import { z } from "zod";
 export const userRouter=new Hono<{Bindings:
     {DATABASE_URL:string;
     JWT_SECRET:string}
-
 }>();
 
 const signupBody=z.object({
@@ -20,16 +19,20 @@ const signupBody=z.object({
 })
 
 userRouter.post('/signup',async (c)=>{
-       const {success}=signupBody.safeParse(c.body)
+    const body = await c.req.text();
+    const parsedBody=await JSON.parse(body)
+    console.log(parsedBody)
+
+    const {success}=signupBody.safeParse(parsedBody)
         if(success){
             const prisma=new PrismaClient({
                 datasourceUrl:c.env.DATABASE_URL,
             }).$extends(withAccelerate());
             const body=c.req.json()
             try{
-                const user=await prisma.user.findUnique({
+                const user=await prisma.user.findUser({
                     where:{
-                        email:
+                        email:"syed"
                     }
                 })
                 return c.text('User Signed up successfully')
@@ -42,11 +45,7 @@ userRouter.post('/signup',async (c)=>{
         else{
             return c.text("Invalid details")
 
-        }
-
-        
-
-        
+        }  
 })
 
 userRouter.post('/hello',async (c)=>{
@@ -54,3 +53,8 @@ userRouter.post('/hello',async (c)=>{
 })
 
 
+export default {
+    async fetch(req, env) {
+        return userRouter.fetch(req, env);
+    }
+};
