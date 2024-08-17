@@ -18,13 +18,15 @@ const signupBody=z.object({
     password:z.string()
 })
 
+const signinBody=z.object({
+    email:z.string(),
+    password:z.string()
+})
+
 
 userRouter.post('/signup',async (c)=>{
     const body = await c.req.text();
     const parsedBody=await JSON.parse(body)
-    console.log(parsedBody)
-    console.log(c.env.DATABASE_URL)
-
     const {success}=signupBody.safeParse(parsedBody)
         if(success){
             const prisma=new PrismaClient({
@@ -40,6 +42,7 @@ userRouter.post('/signup',async (c)=>{
                         },
                         
                     })
+                    
                     return c.text('User Signed up successfully')
             }
             catch(err){
@@ -53,8 +56,32 @@ userRouter.post('/signup',async (c)=>{
         }  
 })
 
-userRouter.post('/hello',async (c)=>{
-    return c.text("hello this si the endpoint")
+userRouter.post('/signin',async (c)=>{
+    const body = await c.req.text();
+    const parsedBody=await JSON.parse(body)
+    const {success}=signinBody.safeParse(parsedBody)
+
+    if(success){
+        const prisma=new PrismaClient({
+            datasourceUrl:c.env.DATABASE_URL,
+        }).$extends(withAccelerate());
+        try{
+            await prisma.user.findUnique({
+                where:{
+                    email:parsedBody.email,
+                },
+            })
+            return c.text("User exists")
+        }
+        catch(error){
+            return c.text(`User not found${error}`)
+        }
+    }
+    else{
+        return c.text("Did not parse")
+    }
+    
+
 })
 
 

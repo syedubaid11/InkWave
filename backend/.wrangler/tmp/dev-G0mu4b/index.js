@@ -34,7 +34,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// .wrangler/tmp/bundle-StJNcl/checked-fetch.js
+// .wrangler/tmp/bundle-akaLfZ/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -52,7 +52,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  ".wrangler/tmp/bundle-StJNcl/checked-fetch.js"() {
+  ".wrangler/tmp/bundle-akaLfZ/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     globalThis.fetch = new Proxy(globalThis.fetch, {
@@ -6531,11 +6531,11 @@ var require_default_index = __commonJS({
   }
 });
 
-// .wrangler/tmp/bundle-StJNcl/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-akaLfZ/middleware-loader.entry.ts
 init_checked_fetch();
 init_modules_watch_stub();
 
-// .wrangler/tmp/bundle-StJNcl/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-akaLfZ/middleware-insertion-facade.js
 init_checked_fetch();
 init_modules_watch_stub();
 
@@ -12293,11 +12293,13 @@ var signupBody = z.object({
   lastName: z.string(),
   password: z.string()
 });
+var signinBody = z.object({
+  email: z.string(),
+  password: z.string()
+});
 userRouter.post("/signup", async (c) => {
   const body = await c.req.text();
   const parsedBody = await JSON.parse(body);
-  console.log(parsedBody);
-  console.log(c.env.DATABASE_URL);
   const { success } = signupBody.safeParse(parsedBody);
   if (success) {
     const prisma = new import_edge.PrismaClient({
@@ -12320,17 +12322,32 @@ userRouter.post("/signup", async (c) => {
     return c.text("Invalid details");
   }
 });
-userRouter.post("/hello", async (c) => {
-  return c.text("hello this si the endpoint");
+userRouter.post("/signin", async (c) => {
+  const body = await c.req.text();
+  const parsedBody = await JSON.parse(body);
+  const { success } = signinBody.safeParse(parsedBody);
+  if (success) {
+    const prisma = new import_edge.PrismaClient({
+      datasourceUrl: c.env.DATABASE_URL
+    }).$extends(withAccelerate());
+    try {
+      await prisma.user.findUnique({
+        where: {
+          email: parsedBody.email
+        }
+      });
+      return c.text("User exists");
+    } catch (error) {
+      return c.text(`User not found${error}`);
+    }
+  } else {
+    return c.text("Did not parse");
+  }
 });
 
 // src/index.ts
 var app = new Hono2();
 app.route("/api/v1/user", userRouter);
-app.get("/test", async (c) => {
-  console.log(c.env.DATABASE_URL);
-  return c.text("hello");
-});
 var src_default = app;
 
 // node_modules/wrangler/templates/middleware/middleware-ensure-req-body-drained.ts
@@ -12377,7 +12394,7 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-StJNcl/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-akaLfZ/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -12408,7 +12425,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// .wrangler/tmp/bundle-StJNcl/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-akaLfZ/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

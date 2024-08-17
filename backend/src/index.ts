@@ -9,8 +9,5 @@ const app = new Hono<{Bindings:
 
 app.route('/api/v1/user',userRouter)
  
-app.get('/test',async (c)=>{
-    console.log(c.env.DATABASE_URL)
-    return c.text("hello")
-})
+
 export default app
