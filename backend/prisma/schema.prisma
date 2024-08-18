@@ -22,10 +22,13 @@ model User{
   firstName  String?
   lastName   String?
   password   String 
-}
+  posts       Post[]
+}  
 
 model Post{
-  id       String @id @unique 
+  id       String @id @unique @default(uuid())
   title    String
   content  String
+  userId   String
+  User     User @relation(fields: [userId], references: [id]) 
 }

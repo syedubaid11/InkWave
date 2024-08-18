@@ -33,7 +33,8 @@ blogRouter.post('/post',async(c)=>{
             await prisma.post.create({
                 data:{
                     title:parseBody.title,
-                    content:parseBody.content
+                    content:parseBody.content,
+                    User: // Add the 'User' property with the required fields
                 },
             })
         }
