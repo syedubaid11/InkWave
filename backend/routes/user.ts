@@ -74,12 +74,12 @@ userRouter.post('/signin',async (c)=>{
             datasourceUrl:c.env.DATABASE_URL,
         }).$extends(withAccelerate());
         try{
-            await prisma.user.findUnique({
+            const newUser=await prisma.user.findUnique({
                 where:{
                     email:parsedBody.email,
                 },
             })
-            return c.text("User exists")
+            
         }
         catch(error){
             return c.text(`User not found${error}`)
