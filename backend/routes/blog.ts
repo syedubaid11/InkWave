@@ -16,6 +16,8 @@ export const blogRouter=new Hono<{Bindings:
 const blogBody=z.object({
     title:z.string(),
     content:z.string()
+    .min(20, "Content must be at least 20 characters long")
+    .max(5000, "Content cannot exceed 5000 characters"),
 })
 
 blogRouter.post('/post',async(c)=>{
@@ -31,12 +33,9 @@ blogRouter.post('/post',async(c)=>{
             await prisma.post.create({
                 data:{
                     title:parseBody.title,
-                    content:parseBody.content,
+                    content:parseBody.content
                 },
             })
-            
-            
-
         }
         catch(error){
             return c.text(`${error}`)
