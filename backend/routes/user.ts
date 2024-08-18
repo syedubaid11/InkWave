@@ -3,13 +3,14 @@ import { Hono } from 'hono'
 import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { z } from "zod";
-import { parseBody } from 'hono/utils/body';
-
+import { parse } from 'dotenv';
 
 export const userRouter=new Hono<{Bindings:
     {DATABASE_URL: string,
-    JWT_SECRET:string}
+    JWT_SECRET: string,
+}
 }>();
+
 
 const signupBody=z.object({
     email:z.string(),
@@ -25,6 +26,7 @@ const signinBody=z.object({
 
 
 userRouter.post('/signup',async (c)=>{
+    console.log(`jwt secret : ${c.env.JWT_SECRET}`)
     const body = await c.req.text();
     const parsedBody=await JSON.parse(body)
     const {success}=signupBody.safeParse(parsedBody)
@@ -33,7 +35,7 @@ userRouter.post('/signup',async (c)=>{
                 datasourceUrl:c.env.DATABASE_URL,
             }).$extends(withAccelerate());
             try{
-                    await prisma.user.create({
+                    const userNew=await prisma.user.create({
                         data:{
                             email:parsedBody.email,
                             password:parsedBody.password,
@@ -42,8 +44,14 @@ userRouter.post('/signup',async (c)=>{
                         },
                         
                     })
+                    const payload={
+                        id:userNew.id,
+                        email:userNew.email,    
+                    }
+                    const token=await sign(payload,c.env.JWT_SECRET)
+
+                    return c.json(token)
                     
-                    return c.text('User Signed up successfully')
             }
             catch(err){
                 return c.text(`${err}`);
@@ -84,4 +92,8 @@ userRouter.post('/signin',async (c)=>{
 
 })
 
-
+userRouter.post('/test',async(c)=>{
+    const token=c.env.JWT_SECRET;
+    console.log(token)
+    return c.text("its working")
+})
