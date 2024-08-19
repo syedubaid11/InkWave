@@ -22,7 +22,7 @@ model User{
   firstName  String?
   lastName   String?
   password   String 
-  posts       Post[]
+  posts      Post[]
 }  
 
 model Post{

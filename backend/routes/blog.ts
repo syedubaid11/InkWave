@@ -20,6 +20,8 @@ const blogBody=z.object({
     .max(5000, "Content cannot exceed 5000 characters"),
 })
 
+
+/*
 blogRouter.post('/post',async(c)=>{
     const body=await c.req.text()
     const parseBody=await JSON.parse(body)
@@ -43,7 +45,25 @@ blogRouter.post('/post',async(c)=>{
         }
     }
     
+})
+*/
+/*
+blogRouter.get('/:id',async (c)=>{
 
 
 
+})
+*/
+blogRouter.get('/bulk',async (c)=>{
+    const prisma=new PrismaClient({
+        datasourceUrl:c.env.DATABASE_URL,
+    }).$extends(withAccelerate());
+    try{
+        const bulk=await prisma.user.findMany()
+        const bulkjson=JSON.stringify(bulk)
+        return c.text(`${bulkjson}`)
+    }
+    catch(error){
+        return c.text(`${error}`)
+    }
 })
