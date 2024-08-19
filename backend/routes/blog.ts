@@ -47,13 +47,29 @@ blogRouter.post('/post',async(c)=>{
     
 })
 */
-/*
+
 blogRouter.get('/:id',async (c)=>{
+    const id=c.req.param('id')
+    const prisma=new PrismaClient({
+        datasourceUrl:c.env.DATABASE_URL,
+    }).$extends(withAccelerate());
+    try{
+        const find=await prisma.post.findUnique({
+            where:{
+                id:id,
+            }
+        })
+        return c.text(`The post is present in the records`)
+    }
+    catch(error){
+        return c.text(`${error}`)
+    }
+
 
 
 
 })
-*/
+
 blogRouter.get('/bulk',async (c)=>{
     const prisma=new PrismaClient({
         datasourceUrl:c.env.DATABASE_URL,

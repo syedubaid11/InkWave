@@ -12794,6 +12794,22 @@ var blogBody = z.object({
   title: z.string(),
   content: z.string().min(20, "Content must be at least 20 characters long").max(5e3, "Content cannot exceed 5000 characters")
 });
+blogRouter.get("/:id", async (c) => {
+  const id = c.req.param("id");
+  const prisma = new import_edge2.PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL
+  }).$extends(withAccelerate());
+  try {
+    const find = await prisma.post.findUnique({
+      where: {
+        id
+      }
+    });
+    return c.text(`The post is present in the records`);
+  } catch (error) {
+    return c.text(`${error}`);
+  }
+});
 blogRouter.get("/bulk", async (c) => {
   const prisma = new import_edge2.PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
