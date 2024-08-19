@@ -34,7 +34,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// .wrangler/tmp/bundle-zgmMBS/checked-fetch.js
+// .wrangler/tmp/bundle-sEEeco/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -52,7 +52,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  ".wrangler/tmp/bundle-zgmMBS/checked-fetch.js"() {
+  ".wrangler/tmp/bundle-sEEeco/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     globalThis.fetch = new Proxy(globalThis.fetch, {
@@ -6439,12 +6439,12 @@ var require_edge2 = __commonJS({
           }
         }
       },
-      "inlineSchema": '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider   = "prisma-client-js"\n  engineType = "library"\n}\n\ndatasource db {\n  provider = "postgresql"\n  url      = env("DATABASE_URL")\n}\n\nmodel User {\n  id        String  @id @unique @default(uuid())\n  email     String  @unique\n  firstName String?\n  lastName  String?\n  password  String\n  posts     Post[]\n}\n\nmodel Post {\n  id      String @id @unique @default(uuid())\n  title   String\n  content String\n  userId  String\n  User    User   @relation(fields: [userId], references: [id])\n}\n',
-      "inlineSchemaHash": "f289a4ab4c7f092f39264640f108842d414d81b930faf507cc398bcf7a66ccf0",
+      "inlineSchema": '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider   = "prisma-client-js"\n  engineType = "library"\n}\n\ndatasource db {\n  provider = "postgresql"\n  url      = env("DATABASE_URL")\n}\n\nmodel User {\n  id        String  @id @unique @default(uuid())\n  email     String  @unique\n  firstName String?\n  lastName  String?\n  password  String\n}\n\nmodel Post {\n  id      String @id @unique @default(uuid())\n  title   String\n  content String\n  userId  String\n}\n',
+      "inlineSchemaHash": "7476ced67a675119532002589f757afc4c9e074bf907522c3282a3c13d943a86",
       "copyEngine": true
     };
     config.dirname = "/";
-    config.runtimeDataModel = JSON.parse('{"models":{"User":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"firstName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"lastName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"posts","kind":"object","isList":true,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"Post","relationName":"PostToUser","relationFromFields":[],"relationToFields":[],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Post":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":true,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"User","kind":"object","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"User","relationName":"PostToUser","relationFromFields":["userId"],"relationToFields":["id"],"isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}},"enums":{},"types":{}}');
+    config.runtimeDataModel = JSON.parse('{"models":{"User":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"firstName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"lastName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Post":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}},"enums":{},"types":{}}');
     defineDmmfProperty2(exports.Prisma, config.runtimeDataModel);
     config.engineWasm = void 0;
     config.injectableEdgeEnv = () => ({
@@ -6531,11 +6531,11 @@ var require_default_index = __commonJS({
   }
 });
 
-// .wrangler/tmp/bundle-zgmMBS/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-sEEeco/middleware-loader.entry.ts
 init_checked_fetch();
 init_modules_watch_stub();
 
-// .wrangler/tmp/bundle-zgmMBS/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-sEEeco/middleware-insertion-facade.js
 init_checked_fetch();
 init_modules_watch_stub();
 
@@ -12794,18 +12794,46 @@ var blogBody = z.object({
   title: z.string(),
   content: z.string().min(20, "Content must be at least 20 characters long").max(5e3, "Content cannot exceed 5000 characters")
 });
-blogRouter.get("/:id", async (c) => {
+blogRouter.post("/post/:id", async (c) => {
+  const id = c.req.param("id");
+  const body = await c.req.text();
+  const parseBody2 = await JSON.parse(body);
+  const { success } = blogBody.safeParse(parseBody2);
+  if (success) {
+    const prisma = new import_edge2.PrismaClient({
+      datasourceUrl: c.env.DATABASE_URL
+    }).$extends(withAccelerate());
+    try {
+      await prisma.post.create({
+        data: {
+          title: parseBody2.title,
+          content: parseBody2.content,
+          userId: id
+        }
+      });
+      return c.text("Blog posted successfully");
+    } catch (error) {
+      return c.text(`${error}`);
+    }
+  }
+});
+blogRouter.get("/get/:id", async (c) => {
   const id = c.req.param("id");
   const prisma = new import_edge2.PrismaClient({
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
   try {
-    const find = await prisma.post.findUnique({
+    const blog = await prisma.post.findUnique({
       where: {
         id
       }
     });
-    return c.text(`The post is present in the records`);
+    if (blog) {
+      const parsedBlog = JSON.stringify(blog);
+      return c.text(`The post is present in the records :  ${parsedBlog}`);
+    } else {
+      return c.text("Post not found");
+    }
   } catch (error) {
     return c.text(`${error}`);
   }
@@ -12815,7 +12843,7 @@ blogRouter.get("/bulk", async (c) => {
     datasourceUrl: c.env.DATABASE_URL
   }).$extends(withAccelerate());
   try {
-    const bulk = await prisma.user.findMany();
+    const bulk = await prisma.post.findMany();
     const bulkjson = JSON.stringify(bulk);
     return c.text(`${bulkjson}`);
   } catch (error) {
@@ -12873,7 +12901,7 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-zgmMBS/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-sEEeco/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -12904,7 +12932,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// .wrangler/tmp/bundle-zgmMBS/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-sEEeco/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

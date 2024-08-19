@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import {z} from 'zod'
 import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
+import { parse } from "dotenv";
 
 
 
@@ -21,8 +22,10 @@ const blogBody=z.object({
 })
 
 
-/*
-blogRouter.post('/post',async(c)=>{
+
+blogRouter.post('/post/:id',async(c)=>{
+
+    const id=c.req.param('id')
     const body=await c.req.text()
     const parseBody=await JSON.parse(body)
     const {success}=blogBody.safeParse(parseBody)
@@ -36,9 +39,10 @@ blogRouter.post('/post',async(c)=>{
                 data:{
                     title:parseBody.title,
                     content:parseBody.content,
-                    User: // Add the 'User' property with the required fields
+                    userId:id,
                 },
             })
+            return c.text("Blog posted successfully")
         }
         catch(error){
             return c.text(`${error}`)
@@ -46,28 +50,31 @@ blogRouter.post('/post',async(c)=>{
     }
     
 })
-*/
 
-blogRouter.get('/:id',async (c)=>{
+
+blogRouter.get('/get/:id',async (c)=>{
     const id=c.req.param('id')
     const prisma=new PrismaClient({
         datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate());
     try{
-        const find=await prisma.post.findUnique({
+        const blog=await prisma.post.findUnique({
             where:{
                 id:id,
             }
         })
-        return c.text(`The post is present in the records`)
+
+        if(blog){
+            const parsedBlog=JSON.stringify(blog)
+            return c.text(`The post is present in the records :  ${parsedBlog}`)
+        }
+        else{
+            return c.text("Post not found")
+        }
     }
     catch(error){
         return c.text(`${error}`)
     }
-
-
-
-
 })
 
 blogRouter.get('/bulk',async (c)=>{
@@ -75,7 +82,7 @@ blogRouter.get('/bulk',async (c)=>{
         datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate());
     try{
-        const bulk=await prisma.user.findMany()
+        const bulk=await prisma.post.findMany()
         const bulkjson=JSON.stringify(bulk)
         return c.text(`${bulkjson}`)
     }
