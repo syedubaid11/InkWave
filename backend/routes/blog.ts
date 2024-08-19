@@ -53,14 +53,14 @@ blogRouter.post('/post/:id',async(c)=>{
 
 
 blogRouter.get('/get/:id',async (c)=>{
-    const id=c.req.param('id')
+    const userId=c.req.param('id')
     const prisma=new PrismaClient({
         datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate());
     try{
-        const blog=await prisma.post.findUnique({
+        const blog=await prisma.post.findMany({
             where:{
-                id:id,
+                userId 
             }
         })
 
