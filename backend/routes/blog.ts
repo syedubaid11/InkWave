@@ -20,7 +20,10 @@ const blogBody=z.object({
     .min(20, "Content must be at least 20 characters long")
     .max(5000, "Content cannot exceed 5000 characters"),
 })
-
+const blogUpdate=z.object({
+    title:z.string().nullable(),
+    content:z.string().nullable()
+})
 
 
 blogRouter.post('/post/:id',async(c)=>{
@@ -89,4 +92,37 @@ blogRouter.get('/bulk',async (c)=>{
     catch(error){
         return c.text(`${error}`)
     }
+})
+
+blogRouter.put('/blog/:id',async (c)=>{
+
+    const body=await c.req.text()
+    const parseBody=await JSON.parse(body)
+    const {success}=blogBody.safeParse(parseBody)
+
+    const blogid=c.req.param('id')
+    const { title,content }=await c.req.json()
+
+    if(success){
+    const prisma=new PrismaClient({
+        datasourceUrl:c.env.DATABASE_URL,
+    }).$extends(withAccelerate());
+    try{
+        await prisma.post.update({
+            where:{
+                userId:blogid
+            },
+            data:{
+                title,content
+            },
+        })
+    }
+    catch(error){
+        return c.text(`error :${error}`)
+    }
+}
+    else{
+        return c.text("cannot parse")
+    }
+
 })
