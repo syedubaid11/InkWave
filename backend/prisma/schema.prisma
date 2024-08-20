@@ -25,8 +25,8 @@ model User{
 }  
 
 model Post{
-  id       String @id @unique @default(uuid())
-  title    String
-  content  String
-  userId   String @unique
+  defaultid    String @default(uuid())
+  title        String
+  content      String
+  id           String @id@unique
 } 

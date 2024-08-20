@@ -34,7 +34,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// .wrangler/tmp/bundle-970Pg8/checked-fetch.js
+// .wrangler/tmp/bundle-q9exYY/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -52,7 +52,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  ".wrangler/tmp/bundle-970Pg8/checked-fetch.js"() {
+  ".wrangler/tmp/bundle-q9exYY/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     globalThis.fetch = new Proxy(globalThis.fetch, {
@@ -6375,10 +6375,10 @@ var require_edge2 = __commonJS({
       password: "password"
     };
     exports.Prisma.PostScalarFieldEnum = {
-      id: "id",
+      defaultid: "defaultid",
       title: "title",
       content: "content",
-      userId: "userId"
+      id: "id"
     };
     exports.Prisma.SortOrder = {
       asc: "asc",
@@ -6440,12 +6440,12 @@ var require_edge2 = __commonJS({
           }
         }
       },
-      "inlineSchema": '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider   = "prisma-client-js"\n  engineType = "library"\n}\n\ndatasource db {\n  provider = "postgresql"\n  url      = env("DATABASE_URL")\n}\n\nmodel User {\n  id        String  @id @unique @default(uuid())\n  email     String  @unique\n  firstName String?\n  lastName  String?\n  password  String\n}\n\nmodel Post {\n  id      String @id @unique @default(uuid())\n  title   String\n  content String\n  userId  String @unique\n}\n',
-      "inlineSchemaHash": "a3119fa15b65797f589c77b4da6540f28c2a6f031e2467a02a4d8f40a6987026",
+      "inlineSchema": '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider   = "prisma-client-js"\n  engineType = "library"\n}\n\ndatasource db {\n  provider = "postgresql"\n  url      = env("DATABASE_URL")\n}\n\nmodel User {\n  id        String  @id @unique @default(uuid())\n  email     String  @unique\n  firstName String?\n  lastName  String?\n  password  String\n}\n\nmodel Post {\n  defaultid String @default(uuid())\n  title     String\n  content   String\n  id        String @id @unique\n}\n',
+      "inlineSchemaHash": "d2294ca95d903e7c8adae4eb2e7b4a3c12b0a9b6259773fbc4fcf92e70149ae8",
       "copyEngine": false
     };
     config.dirname = "/";
-    config.runtimeDataModel = JSON.parse('{"models":{"User":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"firstName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"lastName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Post":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"userId","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}},"enums":{},"types":{}}');
+    config.runtimeDataModel = JSON.parse('{"models":{"User":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"firstName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"lastName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Post":{"dbName":null,"fields":[{"name":"defaultid","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}},"enums":{},"types":{}}');
     defineDmmfProperty2(exports.Prisma, config.runtimeDataModel);
     config.engineWasm = void 0;
     config.injectableEdgeEnv = () => ({
@@ -6532,11 +6532,11 @@ var require_default_index = __commonJS({
   }
 });
 
-// .wrangler/tmp/bundle-970Pg8/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-q9exYY/middleware-loader.entry.ts
 init_checked_fetch();
 init_modules_watch_stub();
 
-// .wrangler/tmp/bundle-970Pg8/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-q9exYY/middleware-insertion-facade.js
 init_checked_fetch();
 init_modules_watch_stub();
 
@@ -12800,7 +12800,7 @@ var blogUpdate = z.object({
   content: z.string().nullable()
 });
 blogRouter.post("/post/:id", async (c) => {
-  const id = c.req.param("id");
+  const userid = c.req.param("id");
   const body = await c.req.text();
   const parseBody2 = await JSON.parse(body);
   const { success } = blogBody.safeParse(parseBody2);
@@ -12813,7 +12813,7 @@ blogRouter.post("/post/:id", async (c) => {
         data: {
           title: parseBody2.title,
           content: parseBody2.content,
-          userId: id
+          id: userid
         }
       });
       return c.text("Blog posted successfully");
@@ -12830,7 +12830,7 @@ blogRouter.get("/get/:id", async (c) => {
   try {
     const blog = await prisma.post.findMany({
       where: {
-        userId
+        id: userId
       }
     });
     if (blog) {
@@ -12858,23 +12858,26 @@ blogRouter.get("/bulk", async (c) => {
 blogRouter.put("/blog/:id", async (c) => {
   const body = await c.req.text();
   const parseBody2 = await JSON.parse(body);
-  const { success } = blogBody.safeParse(parseBody2);
+  const { success } = blogUpdate.safeParse(parseBody2);
   const blogid = c.req.param("id");
+  console.log(blogid);
   const { title, content } = await c.req.json();
   if (success) {
     const prisma = new import_edge2.PrismaClient({
       datasourceUrl: c.env.DATABASE_URL
     }).$extends(withAccelerate());
     try {
-      await prisma.post.update({
+      const update = await prisma.post.update({
         where: {
-          userId: blogid
+          id: blogid
         },
         data: {
           title,
           content
         }
       });
+      const parsedUpdate = JSON.stringify(update);
+      return c.text(`Post has been updated ${parsedUpdate}`);
     } catch (error) {
       return c.text(`error :${error}`);
     }
@@ -12933,7 +12936,7 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-970Pg8/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-q9exYY/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -12964,7 +12967,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// .wrangler/tmp/bundle-970Pg8/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-q9exYY/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;

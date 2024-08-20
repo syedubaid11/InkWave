@@ -28,7 +28,7 @@ const blogUpdate=z.object({
 
 blogRouter.post('/post/:id',async(c)=>{
 
-    const id=c.req.param('id')
+    const userid=c.req.param('id')
     const body=await c.req.text()
     const parseBody=await JSON.parse(body)
     const {success}=blogBody.safeParse(parseBody)
@@ -42,7 +42,7 @@ blogRouter.post('/post/:id',async(c)=>{
                 data:{
                     title:parseBody.title,
                     content:parseBody.content,
-                    userId:id,
+                    id:userid,
                 },
             })
             return c.text("Blog posted successfully")
@@ -63,7 +63,7 @@ blogRouter.get('/get/:id',async (c)=>{
     try{
         const blog=await prisma.post.findMany({
             where:{
-                userId 
+                id:userId, 
             }
         })
 
@@ -98,9 +98,10 @@ blogRouter.put('/blog/:id',async (c)=>{
 
     const body=await c.req.text()
     const parseBody=await JSON.parse(body)
-    const {success}=blogBody.safeParse(parseBody)
+    const {success}=blogUpdate.safeParse(parseBody)
 
     const blogid=c.req.param('id')
+    console.log(blogid)
     const { title,content }=await c.req.json()
 
     if(success){
@@ -108,14 +109,16 @@ blogRouter.put('/blog/:id',async (c)=>{
         datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate());
     try{
-        await prisma.post.update({
+        const update=await prisma.post.update({
             where:{
-                userId:blogid
+                id:blogid
             },
             data:{
                 title,content
             },
         })
+        const parsedUpdate=JSON.stringify(update)
+        return c.text(`Post has been updated ${parsedUpdate}`)
     }
     catch(error){
         return c.text(`error :${error}`)
