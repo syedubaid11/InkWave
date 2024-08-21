@@ -2,7 +2,8 @@ import { Hono } from "hono";
 import {z} from 'zod'
 import { PrismaClient } from '@prisma/client/edge';
 import { withAccelerate } from '@prisma/extension-accelerate';
-import { parse } from "dotenv";
+import {decode,sign,verify} from 'hono/jwt'
+
 
 
 
@@ -25,8 +26,23 @@ const blogUpdate=z.object({
     content:z.string().nullable()
 })
 
+blogRouter.use('/blog/*',async (c,next)=>{
+    const jwt=c.req.header('Authorization')
+    if(!jwt){
+        return c.text("unauthorised")
+    }
+    else{
+        const token=jwt.split(' ')[1]
 
-blogRouter.post('/post/:id',async(c)=>{
+        const decodedPayload=await verify(token,c.env.JWT_SECRET)
+        console.log(decodedPayload)
+
+    }
+       
+    await next()
+})
+
+blogRouter.post('blog/post/:id',async(c)=>{
 
     const userid=c.req.param('id')
     const body=await c.req.text()
@@ -55,7 +71,7 @@ blogRouter.post('/post/:id',async(c)=>{
 })
 
 
-blogRouter.get('/get/:id',async (c)=>{
+blogRouter.get('blog/get/:id',async (c)=>{
     const userId=c.req.param('id')
     const prisma=new PrismaClient({
         datasourceUrl:c.env.DATABASE_URL,
@@ -80,7 +96,7 @@ blogRouter.get('/get/:id',async (c)=>{
     }
 })
 
-blogRouter.get('/bulk',async (c)=>{
+blogRouter.get('blog/bulk',async (c)=>{
     const prisma=new PrismaClient({
         datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate());
@@ -94,7 +110,7 @@ blogRouter.get('/bulk',async (c)=>{
     }
 })
 
-blogRouter.put('/blog/:id',async (c)=>{
+blogRouter.put('blog/:id',async (c)=>{
 
     const body=await c.req.text()
     const parseBody=await JSON.parse(body)
