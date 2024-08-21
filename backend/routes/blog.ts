@@ -92,7 +92,7 @@ blogRouter.get('blog/get/:id',async (c)=>{
     }
 })
 
-blogRouter.get('blog/bulk',async (c)=>{
+blogRouter.get('/bulk',async (c)=>{
     const prisma=new PrismaClient({
         datasourceUrl:c.env.DATABASE_URL,
     }).$extends(withAccelerate());
