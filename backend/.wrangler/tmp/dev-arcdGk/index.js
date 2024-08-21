@@ -12803,11 +12803,10 @@ blogRouter.use("/blog/*", async (c, next) => {
   const jwt2 = c.req.header("Authorization");
   if (!jwt2) {
     return c.text("unauthorised");
-  } else {
-    const token = jwt2.split(" ")[1];
-    const decodedPayload = await verify2(token, c.env.JWT_SECRET);
-    console.log(decodedPayload);
   }
+  const token = jwt2.split(" ")[1];
+  const decodedPayload = await verify2(token, c.env.JWT_SECRET);
+  console.log(decodedPayload);
   await next();
 });
 blogRouter.post("blog/post/:id", async (c) => {

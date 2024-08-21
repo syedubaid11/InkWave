@@ -31,14 +31,10 @@ blogRouter.use('/blog/*',async (c,next)=>{
     if(!jwt){
         return c.text("unauthorised")
     }
-    else{
-        const token=jwt.split(' ')[1]
+    const token=jwt.split(' ')[1]
+    const decodedPayload=await verify(token,c.env.JWT_SECRET)
+    console.log(decodedPayload)
 
-        const decodedPayload=await verify(token,c.env.JWT_SECRET)
-        console.log(decodedPayload)
-
-    }
-       
     await next()
 })
 
@@ -58,7 +54,7 @@ blogRouter.post('blog/post/:id',async(c)=>{
                 data:{
                     title:parseBody.title,
                     content:parseBody.content,
-                    id:userid,
+                    id:userid
                 },
             })
             return c.text("Blog posted successfully")
