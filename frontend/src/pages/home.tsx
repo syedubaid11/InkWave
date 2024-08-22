@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { Navbar } from "../components/navbar";
 import { Hero } from "../components/hero";
+import { Footer } from "../components/footer";
 import { useEffect, useState } from "react";
 
 export function Home(){
@@ -20,6 +21,7 @@ export function Home(){
         >
             <Navbar/>
               <Hero/>
+              <Footer/>
         </motion.div>
         </div>      
     )
