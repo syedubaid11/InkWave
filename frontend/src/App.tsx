@@ -1,4 +1,10 @@
-import { Navbar } from "./components/navbar.tsx"
+import { Home } from "./pages/home.tsx"
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+
 import './App.css'
 
 function App() {
@@ -6,7 +12,13 @@ function App() {
 
   return (
     <>
-    <Navbar/>
+    <BrowserRouter>
+      <Routes>
+
+        <Route path="/"element={ <Home/>  }/>
+
+      </Routes>
+    </BrowserRouter>
     </>
   )
 }
