@@ -5,8 +5,8 @@ export function Navbar(){
                 Inkwave.
             </div>
         <div className="flex flex-wrap justify-center items-center">
-            <button className="m-2 border border-black font-archivo-black p-1 rounded-md text-sm md:text-base">Sign Up</button>
-            <button className="m-2 border border-black p-1 font-archivo-black rounded-md text-sm md:text-base">Sign In</button>
+            <button className="m-2 outline-dotted font-archivo-black p-1 rounded-md text-sm md:outline-none md:border border-black md:text-base">Sign Up</button>
+            <button className="m-2 outline-dotted p-1 font-archivo-black rounded-md text-sm md:outline-none md:border border-black md:text-base">Sign In</button>
         </div>
             
         </div>
