@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { Navbar } from "../components/navbar";
 import { Hero } from "../components/hero";
 import { Footer } from "../components/footer";
+import { Image } from "../components/images";
 import { useEffect, useState } from "react";
 
 export function Home(){
@@ -20,8 +21,24 @@ export function Home(){
             transition={{ duration: 0.3 }} // Set duration for the transition
         >
             <Navbar/>
+            <div className="flex justify-between">
+                <div className="ml-40">
+                 <Image label={"/images/hiking.png"} text={"Best hiking gear"} />
+                </div>
+                <div className="mr-20 mt-20">
+                 <Image label={"/images/hiking.png"} text={"Best hiking gear"} />
+                </div>
+            </div>
               <Hero/>
-              <Footer/>
+              <div className="flex justify-between">
+                <div className="ml-40">
+                 <Image label={"/images/hiking.png"} text={"Best hiking gear"} />
+                </div>
+                <div className="mr-20 mt-20">
+                 <Image label={"/images/hiking.png"} text={"Best hiking gear"} />
+                </div>
+            </div>
+
         </motion.div>
         </div>      
     )

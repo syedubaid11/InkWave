@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 export function Hero(){
     const navigate=useNavigate()
     return(
-        <div className="flex flex-col justify-center items-center mt-40 h-40 ">
+        <div className="flex flex-col justify-center items-center">
             <div className="font-archivo-black text-7xl">
                 Inkwave.
             </div>
