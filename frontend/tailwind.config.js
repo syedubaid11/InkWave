@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'archivo-black': ['"Archivo Black"', 'sans-serif'],
         'qwitcher': ['Qwitcher Grypen', 'sans-serif'],
+        'dmSans': ['DM Sans', 'sans-serif'],
       },
     },
   },
