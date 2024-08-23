@@ -21,7 +21,7 @@ export function Home(){
         >
             <Navbar/>
             <div className="flex justify-between">
-                <div className="ml-40 hidden sm:block">
+                <div className="ml-20 hidden sm:block lg:ml-40">
                  <Image label={"/images/camera.png"} text={"Photography"} height="10rem"  width="15rem"/>
                 </div>
                 <div className="mr-7 mt-5 hidden sm:block">
