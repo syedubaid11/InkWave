@@ -1,9 +1,8 @@
+import { DashboardTop } from "../components/dashboard-top"
 export function Dashboard(){
     return(
         <>
-        <div>
-            This is the dashboard
-        </div>
+        <DashboardTop/>
         </>
     )
 }

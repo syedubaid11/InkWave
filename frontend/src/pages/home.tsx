@@ -25,7 +25,7 @@ export function Home(){
                  <Image label={"/images/camera.png"} text={"Photography"} height="10rem"  width="15rem"/>
                 </div>
                 <div className="mr-7 mt-5">
-                 <Image label={"/images/sports.png"} text={"Sports"}height="7rem" width="9rem"/>
+                 <Image label={"/images/places.png"} text={"Places to Visit"}height="7rem" width="9rem"/>
                 </div>
                 <div className="mr-7 mt-9">
                  <Image label={"/images/web3.png"} text={"Technology"}height="10rem" width="13rem"/>
@@ -34,10 +34,10 @@ export function Home(){
               <Hero/>
               <div className="flex justify-between">
                 <div className="ml-24 mt-9">
-                 <Image label={"/images/hiking.png"} text={"Best hiking gear"}height="7rem" width="9rem"/>
+                 <Image label={"/images/hiking.png"} text={"Best hiking gear"}height="7rem" width="11rem"/>
                 </div>
                 <div className="mr-20 mt-20">
-                 <Image label={"/images/places.png"} text={"Places to visit"} height="9rem" width="10rem"/>
+                 <Image label={"/images/football.png"} text={"Sports"} height="9rem" width="13rem"/>
                 </div>
             </div>
 
