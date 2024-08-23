@@ -22,13 +22,13 @@ export function Home(){
             <Navbar/>
             <div className="flex justify-between">
                 <div className="ml-40">
-                 <Image label={"/images/hiking.png"} text={"Best hiking gear"} height="10rem"  width="15rem"/>
+                 <Image label={"/images/camera.png"} text={"Photography"} height="10rem"  width="15rem"/>
                 </div>
                 <div className="mr-7 mt-5">
-                 <Image label={"/images/hiking.png"} text={"Health"}height="7rem" width="9rem"/>
+                 <Image label={"/images/sports.png"} text={"Sports"}height="7rem" width="9rem"/>
                 </div>
                 <div className="mr-7 mt-9">
-                 <Image label={"/images/web3.png"} text={"web3"}height="10rem" width="13rem"/>
+                 <Image label={"/images/web3.png"} text={"Technology"}height="10rem" width="13rem"/>
                 </div>
             </div>
               <Hero/>
@@ -37,7 +37,7 @@ export function Home(){
                  <Image label={"/images/hiking.png"} text={"Best hiking gear"}height="7rem" width="9rem"/>
                 </div>
                 <div className="mr-20 mt-20">
-                 <Image label={"/images/hiking.png"} text={"Best hiking gear"} height="9rem" width="10rem"/>
+                 <Image label={"/images/places.png"} text={"Places to visit"} height="9rem" width="10rem"/>
                 </div>
             </div>
 
