@@ -21,22 +21,22 @@ export function Home(){
         >
             <Navbar/>
             <div className="flex justify-between">
-                <div className="ml-40">
+                <div className="ml-40 hidden sm:block">
                  <Image label={"/images/camera.png"} text={"Photography"} height="10rem"  width="15rem"/>
                 </div>
-                <div className="mr-7 mt-5">
+                <div className="mr-7 mt-5 hidden sm:block">
                  <Image label={"/images/places.png"} text={"Places to Visit"}height="7rem" width="9rem"/>
                 </div>
-                <div className="mr-7 mt-9">
-                 <Image label={"/images/web3.png"} text={"Technology"}height="10rem" width="13rem"/>
+                <div className="mr-7 mt-9 hidden sm:block">
+                 <Image label={"/images/tech.png"} text={"Technology"}height="10rem" width="15rem"/>
                 </div>
             </div>
               <Hero/>
               <div className="flex justify-between">
-                <div className="ml-24 mt-9">
+                <div className="ml-24 mt-9 hidden sm:block">
                  <Image label={"/images/hiking.png"} text={"Best hiking gear"}height="7rem" width="11rem"/>
                 </div>
-                <div className="mr-20 mt-20">
+                <div className="mr-20 mt-20 hidden sm:block">
                  <Image label={"/images/football.png"} text={"Sports"} height="9rem" width="13rem"/>
                 </div>
             </div>
