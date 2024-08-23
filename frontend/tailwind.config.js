@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         'archivo-black': ['"Archivo Black"', 'sans-serif'],
+        'qwitcher': ['Qwitcher Grypen', 'sans-serif'],
       },
     },
   },
