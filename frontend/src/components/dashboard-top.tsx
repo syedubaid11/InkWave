@@ -1,9 +1,12 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 
 export function DashboardTop(){
+    const navigate=useNavigate();
     const [data,setData]=useState("")
+    const [loggedin,setLoggedin]=useState(false)
     
 
     useEffect(()=>{
@@ -16,9 +19,23 @@ export function DashboardTop(){
                 <input className="h-fit rounded-md ml-4 border-2 w-28 md:ml-8 md:w-fit " type="text" placeholder="Search a blog"></input>
             </div>
             <div className="flex items-center">
-                <button className="border-2 rounded-lg p-2 text-sm md:text-xl">✍️</button>
+                <div>
+                   <button onClick={()=>{navigate('/post')}}className="border-2 rounded-lg p-2 text-sm md:text-xl">✍️</button>
+                   {!loggedin?
+                   (
+                        <div>
+                            <button onClick={()=>{navigate('/signup')}}className="border-2 rounded-lg p-1 m-2 text-sm md:text-xl">Signup</button>
+                            <button onClick={()=>{navigate('/sigin')}}className="border-2 rounded-lg p-1 m-2 text-sm md:text-xl">Sign in</button>
+                        </div>
+                    )
+                    :(
+                        <div>Logged in</div>)
+                    }
+                </div>
             </div>
+            
 
         </div>
     )
 }
+
