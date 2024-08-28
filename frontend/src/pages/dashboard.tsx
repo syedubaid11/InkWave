@@ -6,8 +6,6 @@ export function Dashboard(){
     return(
         <>
         <DashboardTop/>
-        <Leftsidebar/>
-        <Rightsidebar/>
         <Middlebar/>
         </>
     )

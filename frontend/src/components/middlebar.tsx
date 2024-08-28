@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export const Middlebar=()=>{
     const [data,setData]=useState([])
+    const [loading,setLoading]=useState(true)
 
     useEffect(()=>{
         const fetchData=async()=>{
@@ -19,18 +20,27 @@ export const Middlebar=()=>{
                }
         }
         fetchData()
+        setTimeout(()=>{
+            setLoading(false)
+        },1500)
     },[])
-    const map=data.map((item)=>{
-        return(
-            <>
-            <BlogDetail title={"Lamb"} content={"Test"}/>
-            </>
+    const map = data.map((item: { title: string,content:string,author:string }) => {
+        return (
+            <div className="m-5 ">
+                <BlogDetail title={item.title} content={item.content}/> 
+            </div>
         )
     })
     return(
         <>
-        <div className="overflow-y-auto h-screen md:ml-48 md:mr-48">
-            {map}
+        <div className="overflow-y-auto h-screen md:ml-48 md:mr-48 border-l border-r">
+            {loading?(
+            <div className="flex flex-row justify-center">
+                <div className="flex">Loading... Please wait</div>
+                </div>):
+                (<div>
+                    {map}
+                    </div>)}
         </div>
         </>
     )
