@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 
 
@@ -5,6 +6,11 @@ import { useState } from "react"
 export const Post=()=>{
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
+
+    const publish=async()=>{
+        const post=axios.post('http://localhost:8787/')
+
+    }
     return(
         <>
         

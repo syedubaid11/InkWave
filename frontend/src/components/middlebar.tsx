@@ -26,7 +26,7 @@ export const Middlebar=()=>{
     },[])
     const map = data.map((item: { title: string,content:string,author:string }) => {
         return (
-            <div className="m-5 ">
+            <div className="m-5">
                 <BlogDetail title={item.title} content={item.content}/> 
             </div>
         )

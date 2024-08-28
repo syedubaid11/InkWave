@@ -18,7 +18,7 @@ export function DashboardTop(){
     },[])
 
     return(
-        <>
+        <div className="bg-amber-300">
           {!loggedin?
                    (
                         <div className="flex justify-end border-b border-black-600">
@@ -29,10 +29,9 @@ export function DashboardTop(){
                     :(
                         <div></div>)
                     }
-        <div className="flex flex-row justify-between p-4 m-2 border-b border-black-600">
+        <div className="flex flex-row justify-between p-4  border-b border-black-600">
             <div className="flex items-center">
-                <p className="text-2xl md:text-4xl font-archivo-black">Inkwave.</p>
-                <input className="h-fit rounded-md ml-4 border-2 w-28 md:ml-8 md:w-fit " type="text" placeholder="Search a blog"></input>
+                <p className="text-2xl md:text-4xl font-archivo-black">inkwave.</p>
             </div>  
             <div className="flex items-center">
                 <div>
@@ -40,9 +39,9 @@ export function DashboardTop(){
                 </div>
                    {!loggedin?
                    (
-                        <div>
-                            <button onClick={()=>{navigate('/signup')}}className="hidden md:block border border-black rounded-lg p-1 m-1 text-sm md:text-xl">Signup</button>
-                            <button onClick={()=>{navigate('/sigin')}}className="hidden md:block border border-black  rounded-lg p-1 m-1 text-sm md:text-xl">Sign in</button>
+                        <div className="flex flex-row">
+                            <button onClick={()=>{navigate('/signup')}}className="hidden md:block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700   border border-black rounded-lg p-1 m-1 text-sm md:text-l">Signup</button>
+                            <button onClick={()=>{navigate('/sigin')}}className="hidden md:block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700 border border-black  rounded-lg p-1 m-1 text-sm md:text-l">Sign in</button>
                         </div>
                     )
                     :(
@@ -52,7 +51,7 @@ export function DashboardTop(){
             
 
         </div>
-        </>
+        </div>
     )
 }
 
