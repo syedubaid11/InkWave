@@ -25,7 +25,7 @@ const blogUpdate=z.object({
     title:z.string().nullable(),
     content:z.string().nullable()
 })
-
+/*
 blogRouter.use('/blog/*',async (c,next)=>{
     const jwt=c.req.header('Authorization')
     if(!jwt){
@@ -37,6 +37,7 @@ blogRouter.use('/blog/*',async (c,next)=>{
 
     await next()
 })
+*/
 
 blogRouter.post('blog/post/:id',async(c)=>{
 
