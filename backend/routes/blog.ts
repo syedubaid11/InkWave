@@ -55,7 +55,8 @@ blogRouter.post('blog/post/:id',async(c)=>{
                 data:{
                     title:parseBody.title,
                     content:parseBody.content,
-                    id:userid
+                    id:userid,
+                    author:parseBody.author
                 },
             })
             return c.text("Blog posted successfully")

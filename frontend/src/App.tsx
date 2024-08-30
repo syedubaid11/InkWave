@@ -8,6 +8,7 @@ import {
   Routes,
 } from "react-router-dom";
 import './App.css'
+import { Postview } from "./pages/postview.tsx";
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Route path="/"element={<Home/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/post" element={<Post/>}/>
+        <Route path="/view/:id"element={<Postview/>}/>
       </Routes>
     </BrowserRouter>
     </>

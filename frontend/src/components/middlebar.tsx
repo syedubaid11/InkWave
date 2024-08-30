@@ -24,10 +24,10 @@ export const Middlebar=()=>{
             setLoading(false)
         },1500)
     },[])
-    const map = data.map((item: { title: string,content:string,author:string }) => {
+    const map = data.map((item: { title: string,content:string,author:string,id:string }) => {
         return (
             <div className="m-5">
-                <BlogDetail title={item.title} content={item.content}/> 
+                <BlogDetail title={item.title} content={item.content} id={item.id} author={item.author}/> 
             </div>
         )
     })
