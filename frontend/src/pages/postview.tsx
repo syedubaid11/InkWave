@@ -10,8 +10,14 @@ export const Postview =()=>{
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await axios.get(`localhost://api/v1/blog/get/:${id}`);
-            setData(response.data); // Fix: Pass the response data to setData
+            try{
+                const response = await axios.get(`http://localhost:8787/api/v1/blog/blog/get/${id}`);
+                setData(response.data); // Fix: Pass the response data to setData
+            }
+            catch(error){
+                console.log(error)
+            }
+           
         };
         fetchData();
     }, []);

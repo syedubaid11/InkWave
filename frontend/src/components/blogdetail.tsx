@@ -14,7 +14,7 @@ export const BlogDetail:React.FC<BlogDetailProps>=({title,author,content,id})=>{
     
     return(
         <>
-        <div className="border-b h-max w-full cursor-pointer" onClick={()=>{navigate(`/view/:${postid}`)}}>
+        <div className="border-b h-max w-full cursor-pointer" onClick={()=>{navigate(`/view/${postid}`)}}>
             <div className="flex flex-row justify-between">
                 <div className="ml-3 text-xl font-bold">
                     {title}
