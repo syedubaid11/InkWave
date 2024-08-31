@@ -82,8 +82,7 @@ blogRouter.get('blog/get/:id',async (c)=>{
         })
 
         if(blog){
-            const parsedBlog=JSON.stringify(blog)
-            return c.text(`The post is present in the records :  ${parsedBlog}`)
+            return c.json(blog)
         }
         else{
             return c.text("Post not found")

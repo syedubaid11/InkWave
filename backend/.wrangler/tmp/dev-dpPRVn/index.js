@@ -34,7 +34,7 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 
-// .wrangler/tmp/bundle-6I473G/checked-fetch.js
+// .wrangler/tmp/bundle-ECnVEm/checked-fetch.js
 function checkURL(request, init) {
   const url = request instanceof URL ? request : new URL(
     (typeof request === "string" ? new Request(request, init) : request).url
@@ -52,7 +52,7 @@ function checkURL(request, init) {
 }
 var urls;
 var init_checked_fetch = __esm({
-  ".wrangler/tmp/bundle-6I473G/checked-fetch.js"() {
+  ".wrangler/tmp/bundle-ECnVEm/checked-fetch.js"() {
     "use strict";
     urls = /* @__PURE__ */ new Set();
     globalThis.fetch = new Proxy(globalThis.fetch, {
@@ -6461,7 +6461,7 @@ var require_edge2 = __commonJS({
         "db"
       ],
       "activeProvider": "postgresql",
-      "postinstall": false,
+      "postinstall": true,
       "inlineDatasources": {
         "db": {
           "url": {
@@ -6472,7 +6472,7 @@ var require_edge2 = __commonJS({
       },
       "inlineSchema": '// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider   = "prisma-client-js"\n  engineType = "library"\n}\n\ndatasource db {\n  provider = "postgresql"\n  url      = env("DATABASE_URL")\n}\n\nmodel User {\n  id        String  @id @unique @default(uuid())\n  email     String  @unique\n  firstName String?\n  lastName  String?\n  password  String\n}\n\nmodel Post {\n  defaultid String @id @default(uuid())\n  title     String\n  content   String\n  id        String\n  author    String\n}\n',
       "inlineSchemaHash": "7ef09da4f23d137e5701603e12d3e53942e3ebdc325cad179092df712212494f",
-      "copyEngine": false
+      "copyEngine": true
     };
     config.dirname = "/";
     config.runtimeDataModel = JSON.parse('{"models":{"User":{"dbName":null,"fields":[{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"email","kind":"scalar","isList":false,"isRequired":true,"isUnique":true,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"firstName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"lastName","kind":"scalar","isList":false,"isRequired":false,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"password","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false},"Post":{"dbName":null,"fields":[{"name":"defaultid","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":true,"isReadOnly":false,"hasDefaultValue":true,"type":"String","default":{"name":"uuid(4)","args":[]},"isGenerated":false,"isUpdatedAt":false},{"name":"title","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"content","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"id","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false},{"name":"author","kind":"scalar","isList":false,"isRequired":true,"isUnique":false,"isId":false,"isReadOnly":false,"hasDefaultValue":false,"type":"String","isGenerated":false,"isUpdatedAt":false}],"primaryKey":null,"uniqueFields":[],"uniqueIndexes":[],"isGenerated":false}},"enums":{},"types":{}}');
@@ -6562,11 +6562,11 @@ var require_default_index = __commonJS({
   }
 });
 
-// .wrangler/tmp/bundle-6I473G/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-ECnVEm/middleware-loader.entry.ts
 init_checked_fetch();
 init_modules_watch_stub();
 
-// .wrangler/tmp/bundle-6I473G/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-ECnVEm/middleware-insertion-facade.js
 init_checked_fetch();
 init_modules_watch_stub();
 
@@ -12865,8 +12865,7 @@ blogRouter.get("blog/get/:id", async (c) => {
       }
     });
     if (blog) {
-      const parsedBlog = JSON.stringify(blog);
-      return c.text(`The post is present in the records :  ${parsedBlog}`);
+      return c.json(blog);
     } else {
       return c.text("Post not found");
     }
@@ -13043,7 +13042,7 @@ var jsonError = async (request, env, _ctx, middlewareCtx) => {
 };
 var middleware_miniflare3_json_error_default = jsonError;
 
-// .wrangler/tmp/bundle-6I473G/middleware-insertion-facade.js
+// .wrangler/tmp/bundle-ECnVEm/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -13074,7 +13073,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
   ]);
 }
 
-// .wrangler/tmp/bundle-6I473G/middleware-loader.entry.ts
+// .wrangler/tmp/bundle-ECnVEm/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
