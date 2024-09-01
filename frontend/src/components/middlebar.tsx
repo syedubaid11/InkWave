@@ -1,6 +1,7 @@
 import { BlogDetail } from "./blogdetail"
 import { useEffect, useState } from "react"
 import axios from 'axios';
+import { Skeleton } from "./skeleton";
 
 
 export const Middlebar=()=>{
@@ -26,6 +27,7 @@ export const Middlebar=()=>{
     },[])
     const map = data.map((item: { title: string,content:string,author:string,id:string }) => {
         return (
+            
             <div className="m-5">
                 <BlogDetail title={item.title} content={item.content} id={item.id} author={item.author}/> 
             </div>
@@ -35,8 +37,14 @@ export const Middlebar=()=>{
         <>
         <div className="overflow-y-auto h-screen md:ml-48 md:mr-48 border-l border-r">
             {loading?(
-            <div className="flex flex-row justify-center">
-                <div className="flex">Loading... Please wait</div>
+            <div className="flex flex-col ml-10 mt-10">
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                <Skeleton/>
+                
                 </div>):
                 (<div>
                     {map}
