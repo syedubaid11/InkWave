@@ -13,10 +13,10 @@ export const Post=()=>{
 
     const publish=async()=>{
         try{
-            const response=await axios.post('http://localhost:8787/api/v1/blog/blog/post/543534538',{
+            const response=await axios.post(`http://localhost:8787/api/v1/blog/blog/post/`,{
                 title:title,
                 content:content,
-                author:"syed"
+                author:"anonymous"
         })
        return console.log('posted successfully',response)
         }

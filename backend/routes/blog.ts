@@ -25,8 +25,9 @@ const blogUpdate=z.object({
     title:z.string().nullable(),
     content:z.string().nullable()
 })
-/*
-blogRouter.use('/blog/*',async (c,next)=>{
+
+blogRouter.use('/blog/post/*',async (c,next)=>{
+    console.log("control uday")
     const jwt=c.req.header('Authorization')
     if(!jwt){
         return c.text("unauthorised")
@@ -37,10 +38,9 @@ blogRouter.use('/blog/*',async (c,next)=>{
 
     await next()
 })
-*/
+
 
 blogRouter.post('blog/post/:id',async(c)=>{
-
     const userid=c.req.param('id')
     const body=await c.req.text()
     const parseBody=await JSON.parse(body)

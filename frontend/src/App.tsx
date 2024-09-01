@@ -20,7 +20,8 @@ function App() {
         <Route path="/home" element={<Homepage/>}/>
         <Route path="/"element={<Home/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/post" element={<Post/>}/>
+        <Route path="/dashboard/:id" element={<Dashboard/>}/>
+        <Route path="/post/:id" element={<Post/>}/>
         <Route path="/view/:id"element={<Postview/>}/>
       </Routes>
     </BrowserRouter>
