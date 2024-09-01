@@ -5,7 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export function DashboardTop(){
     const navigate=useNavigate();
-    const {user,isAuthenticated,isLoading}=useAuth0();
+    const {user,isAuthenticated,isLoading,logout}=useAuth0();
     // const checkloggedin=()=>{
     //     const status=localStorage.getItem('status')
     //     if(status){
@@ -54,8 +54,8 @@ export function DashboardTop(){
 
                             <div className="flex flex-col items-center ml-5">
                                 <img className="h-10 rounded-full"src={user?.picture} alt={user?.name}/>
-                                <p className="mt-3">{user?.name}</p>
                             </div>    
+                            <button className="ml-4 text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700   border border-black rounded-lg p-1 m-1 text-sm md:text-l" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>Log Out</button>
                         </div>
                         )
                     }
