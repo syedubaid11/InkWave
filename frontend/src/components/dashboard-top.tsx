@@ -51,7 +51,7 @@ export function DashboardTop(){
                     )
                     :(
                         <div>
-                            <button onClick={()=>{navigate('/post/')}}className="rounded-lg p-2 text-sm md:text-xl">✍️</button>
+                            <button onClick={()=>{navigate(`/post/${id}`)}}className="rounded-lg p-2 text-sm md:text-xl">✍️</button>
                         </div>
                         )
                     }
