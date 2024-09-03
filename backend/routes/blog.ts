@@ -25,7 +25,7 @@ const blogUpdate=z.object({
     title:z.string().nullable(),
     content:z.string().nullable()
 })
-
+/*
 blogRouter.use('/blog/post/*',async (c,next)=>{
     console.log("control uday")
     const jwt=c.req.header('Authorization')
@@ -38,6 +38,7 @@ blogRouter.use('/blog/post/*',async (c,next)=>{
 
     await next()
 })
+*/
 
 
 blogRouter.post('blog/post/:id',async(c)=>{
@@ -64,6 +65,9 @@ blogRouter.post('blog/post/:id',async(c)=>{
         catch(error){
             return c.text(`${error}`)
         }
+    }
+    else{
+        return c.text("Invalid input")
     }
     
 })
@@ -106,7 +110,7 @@ blogRouter.get('/bulk',async (c)=>{
         return c.text(`${error}`)
     }
 })
-
+/*
 blogRouter.put('blog/:id',async (c)=>{
 
     const body=await c.req.text()
@@ -142,3 +146,4 @@ blogRouter.put('blog/:id',async (c)=>{
     }
 
 })
+*/

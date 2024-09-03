@@ -6,6 +6,12 @@ export const Profile = () => {
   if (isLoading) {
     return <div>Loading ...</div>;
   }
+  if(isAuthenticated){
+    console.log({user})
+  }
+  else{
+    console.log('not authenticated')
+  }
 
   return (
     isAuthenticated && (

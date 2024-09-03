@@ -16,7 +16,6 @@ export const Postview =()=>{
             try{
                 const response = await axios.get(`http://localhost:8787/api/v1/blog/blog/get/${id}`);
                 setData(response.data); // Fix: Pass the response data to setData
-                console.log(response.data[0].title)
                 setTitle(response.data[0].title)
                 setContent(response.data[0].content)
                 setAuthor(response.data[0].author)
