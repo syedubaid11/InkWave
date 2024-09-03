@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')!).render(
     domain="dev-7x6t7l46wa8j4i2r.au.auth0.com"
     clientId="iZJ5KReZX8negDjg8en1Nkds6BeQkPjM"
     authorizationParams={{
-      redirect_uri:'http://localhost:5173/dashboard'
+      redirect_uri:`http://localhost:5173/dashboard`
     }}
   >
   <StrictMode>

@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import './App.css'
 import { Postview } from "./pages/postview.tsx";
-import { Signup } from "./pages/signup.tsx";
 
 function App() {
   
@@ -24,7 +23,6 @@ function App() {
         <Route path="/dashboard/:id" element={<Dashboard/>}/>
         <Route path="/post/:id" element={<Post/>}/>
         <Route path="/view/:id"element={<Postview/>}/>
-        <Route path="/signup" element={<Signup/>}/>
       </Routes>
     </BrowserRouter>
     </>

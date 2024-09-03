@@ -5,7 +5,22 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export function DashboardTop(){
     const navigate=useNavigate();
-    const {user,isAuthenticated,isLoading,logout}=useAuth0();
+    const {user,isAuthenticated,isLoading,logout,loginWithRedirect}=useAuth0();
+    const [userid,setUserid]=useState<string>("")
+
+  useEffect(()=>{
+    if(isAuthenticated){
+        console.log(user)
+        const authid=user?.sub ?? "";
+        const useridd=authid.split("|")[1]
+        setUserid(useridd)
+        console.log(userid)
+    }
+    else{
+        console.log('user isnt authenticated')
+    }
+  },[isAuthenticated])
+    
     // const checkloggedin=()=>{
     //     const status=localStorage.getItem('status')
     //     if(status){
@@ -43,13 +58,12 @@ export function DashboardTop(){
                    {!isAuthenticated?
                    (
                         <div className="flex flex-row">
-                            <button onClick={()=>{navigate('/post/anon')}}className="rounded-lg p-2 text-sm md:text-xl">✍️</button>
-                            <button onClick={()=>{navigate('/signup')}}className="hidden md:block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700   border border-black rounded-lg p-1 m-1 text-sm md:text-l">Log in</button>
+                            <button onClick={() => loginWithRedirect()} className="hidden md:block text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium rounded-full text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700   border border-black rounded-lg p-1 m-1 text-sm md:text-l">Log in</button>
                         </div>
                     )
                     :(
                         <div className="flex items-center">
-                            <button onClick={()=>{navigate(`/post/${id}`)}}className="rounded-lg p-2 text-sm md:text-xl">✍️</button>
+                            <button onClick={()=>{navigate(`/post/${userid}`)}}className="rounded-lg p-2 text-sm md:text-xl">✍️</button>
 
                             <div className="flex flex-col items-center ml-5">
                                 <img className="h-10 rounded-full"src={user?.picture} alt={user?.name}/>

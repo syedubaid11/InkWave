@@ -3,6 +3,7 @@ import { Navbar } from "../components/navbar";
 import { Hero } from "../components/hero";
 import { Image } from "../components/images";
 import { useEffect, useState } from "react";
+import { About } from "../components/about";
 
 export function Home(){
 
@@ -39,6 +40,10 @@ export function Home(){
                 <div className="mr-20 mt-20 hidden sm:block">
                  <Image label={"/images/football.png"} text={"Sports"} height="9rem" width="13rem"/>
                 </div>
+            </div>
+
+            <div className="mt-80">
+                <About/>
             </div>
 
         </motion.div>
