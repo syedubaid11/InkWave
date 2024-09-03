@@ -25,6 +25,7 @@ export const Middlebar=()=>{
             setLoading(false)
         },1500)
     },[])
+
     const map = data.map((item: { title: string,content:string,author:string,id:string }) => {
         return (
             
@@ -44,7 +45,6 @@ export const Middlebar=()=>{
                 <Skeleton/>
                 <Skeleton/>
                 <Skeleton/>
-                
                 </div>):
                 (<div>
                     {map}
