@@ -1,22 +1,25 @@
 import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useParams } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 
 export const Post=()=>{
     const [title,setTitle]=useState("")
     const [content,setContent]=useState("")
-    const navigate=useNavigate()
-    console.log(content)
-    console.log(title)
+    const navigate=useNavigate();
+    const {id}=useParams();
+    const {user}=useAuth0();
+    const username=user?.family_name; 
 
     const publish=async()=>{
         try{
-            const response=await axios.post(`http://localhost:8787/api/v1/blog/blog/post/`,{
+            const response=await axios.post(`http://localhost:8787/api/v1/blog/blog/post/${id}`,{
                 title:title,
                 content:content,
-                author:"anonymous"
+                author:username
         })
        return console.log('posted successfully',response)
         }

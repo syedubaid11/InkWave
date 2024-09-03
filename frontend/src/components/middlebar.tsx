@@ -14,7 +14,6 @@ export const Middlebar=()=>{
                 const response=await axios.get('http://localhost:8787/api/v1/blog/bulk')
                 const data=response.data
                 setData(data)
-                console.log(data)
                }
                catch(error){
                 return console.log('Error in getting the data',error)
@@ -26,10 +25,10 @@ export const Middlebar=()=>{
         },1500)
     },[])
 
-    const map = data.map((item: { title: string,content:string,author:string,id:string }) => {
+    const map = data.map((item: { title: string,content:string,author:string,id:string },index:number) => {
         return (
             
-            <div className="m-5">
+            <div className="m-5" key={index}>
                 <BlogDetail title={item.title} content={item.content} id={item.id} author={item.author}/> 
             </div>
         )

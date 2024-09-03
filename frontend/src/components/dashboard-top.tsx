@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useParams } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export function DashboardTop(){
     const navigate=useNavigate();
-    const {user,isAuthenticated,isLoading,logout,loginWithRedirect}=useAuth0();
+    const {user,isAuthenticated,logout,loginWithRedirect}=useAuth0();
     const [userid,setUserid]=useState<string>("")
 
   useEffect(()=>{
