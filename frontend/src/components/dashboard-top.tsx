@@ -46,7 +46,7 @@ export function DashboardTop(){
                     }
 
                     
-         <div className="m-2 bg-amber-300 rounded-lg">
+         <div className="m-2 bg-gradient-to-r from-amber-400 to-yellow-300 rounded-lg">
         <div className="flex flex-row justify-between p-4">
 
             <div className="flex items-center">

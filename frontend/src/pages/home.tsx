@@ -4,6 +4,9 @@ import { Hero } from "../components/hero";
 import { Image } from "../components/images";
 import { useEffect, useState } from "react";
 import { About } from "../components/about";
+import { Features } from "../components/features";
+import { Cards } from "../components/card";
+import { Footer } from "../components/footer";
 
 export function Home(){
 
@@ -14,7 +17,7 @@ export function Home(){
     },[])
 
     return(
-        <div className="h-screen w-screen bg-amber-300 font-dmSans">
+        <div className="h-100 w-screen bg-amber-300 font-dmSans">
           <motion.div
             initial={{ opacity: 0, y: -50 }} // Start with opacity 0 and move upwards
             animate={{ opacity: isVisible ? 1 : 0, y: 0 }} // Animate to opacity 1 and move to original position
@@ -42,9 +45,23 @@ export function Home(){
                 </div>
             </div>
 
-            <div className="mt-80">
+            <div className="mt-40">
                 <About/>
             </div>
+            <div className="mt-20">
+                <Features/>
+            </div>
+            <div className="flex justify-center mt-40 bg-black">
+                <Cards title="Argentine Glory"/>
+            </div>
+            <div className="flex justify-center mt-40 bg-black ">
+                <Cards title="All about Claude Sonnet 3.0"/>
+            </div>
+            <div className="flex justify-center mt-40 bg-black">
+                <Cards title="Argentine Glory"/>
+            </div>
+
+            <Footer/>
 
         </motion.div>
         </div>      
