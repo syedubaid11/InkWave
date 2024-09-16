@@ -58,7 +58,7 @@ export function Home(){
                 <Cards title="All about Claude Sonnet 3.0"/>
             </div>
             <div className="flex justify-center mt-40 bg-black">
-                <Cards title="Argentine Glory"/>
+                <Cards title="Hiking Gears"/>
             </div>
 
             <Footer/>

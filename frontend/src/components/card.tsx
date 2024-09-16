@@ -11,12 +11,20 @@ export const Cards: React.FC<CardProps> = (props) => {
                 <div>{props.title}</div>
                 
             </div>
-            <div className="flex flex-row">
-                <div></div>
-                <img></img>
-            </div>
-            <div>
-                content
+
+
+
+
+            <div className="flex flex-row  h-max">
+                <figure className="ml-5 relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                    <a href="#">
+                        <img className="rounded-lg" src="/images/argentina.png" alt="image description"/>
+                    </a>
+                    <figcaption className="absolute px-4 text-2xl text-amber-300 bottom-6">
+                        <p>Argentine Glory</p>
+                    </figcaption>
+                </figure>
+                <div>content</div>
             </div>
         </div> 
     )
