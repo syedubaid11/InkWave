@@ -9,7 +9,15 @@ const app = new Hono<{Bindings:
     JWT_SECRET:string}
 }>();
 
-app.use(cors())
+app.use('*',
+    cors({
+        origin:'*',
+        allowHeaders:['GET','POST','PUT'],
+        allowMethods:['Content-Type','Authorization'],
+        credentials:true
+    }))
+
+app.get('/',(c)=>c.text("hello welcome to the backend"))
 
 
 app.route('/api/v1/user',userRouter)

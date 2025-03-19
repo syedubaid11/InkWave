@@ -1,4 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 20 5% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 5% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 5% 10%;
+
+    --primary: 40 100% 50%;
+    --primary-foreground: 34 44% 12%;
+
+    --secondary: 45 50% 96%;
+    --secondary-foreground: 34 44% 18%;
+
+    --muted: 45 10% 96%;
+    --muted-foreground: 20 5% 45%;
+
+    --accent: 33 80% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 40 10% 90%;
+    --input: 40 10% 90%;
+    --ring: 40 100% 50%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  
+  p, li, a, button, input, textarea {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 rounded-2xl shadow-sm;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/30 rounded-xl shadow-sm 
+           transition-all duration-300 hover:shadow-md hover:bg-white/90;
+  }
+  
+  .inkwave-container {
+    @apply w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg text-sm font-medium transition-colors 
+           focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none 
+           disabled:opacity-50;
+  }
+  
+  .btn-primary {
+    @apply btn bg-inkwave-500 text-white hover:bg-inkwave-600 
+           shadow-[0_2px_8px_rgba(255,179,11,0.3)] hover:shadow-[0_4px_12px_rgba(255,179,11,0.35)]
+           transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+  
+  .tag {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium;
+  }
+  
+  .tag-yellow {
+    @apply tag bg-inkwave-100 text-inkwave-800;
+  }
+  
+  .tag-accent {
+    @apply tag bg-accent/10 text-accent-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-b from-inkwave-700 to-inkwave-900 bg-clip-text text-transparent;
+  }
+}
