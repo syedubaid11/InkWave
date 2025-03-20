@@ -25,4 +25,4 @@ dist-ssr
 .env
 
 
-/backend/wrangler.toml
+./backend/wrangler.toml
